@@ -4,6 +4,8 @@ import Blog from './routes/blog'
 import Data from './routes/data'
 import Photo from './routes/photo'
 
+import css from './root.scss';
+
 export default class Root extends React.Component {
   render() {
     return (
