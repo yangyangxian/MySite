@@ -1,6 +1,10 @@
 import css from './app.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'bootstrap';
+import $ from 'jquery';
+window.$ = $;
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './root/root';
