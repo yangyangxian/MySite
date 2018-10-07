@@ -6,7 +6,7 @@ var chartThemes = require('../../resources/echartsThemes/themeList.json')
 export default class Data extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {barTheme: chartThemes.macarons};
+    this.state = {barTheme: chartThemes.walden};
   }
 
   render() {
