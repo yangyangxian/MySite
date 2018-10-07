@@ -17,19 +17,23 @@ export default class BarChart extends React.Component {
             gridPaddingTop = "10%";
         }
 
+        var data = this.props.data;
+
+        var xAxisNames = this.props.xAxisNames;
+
         chart.setOption({
             title: {
                 text: title,
                 align: "center"
             },
             xAxis: {
-                data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+                data: xAxisNames
             },
             yAxis: {},
             series: [{
                 name: '销量',
                 type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
+                data: data
             }],
             grid: {
                 top: gridPaddingTop,
