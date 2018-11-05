@@ -2,13 +2,18 @@ import React from 'react';
 
 var echarts = require('echarts');
 
-export default class BarChart extends React.Component {
+export default class Chart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {chartId : Math.round(Math.random() * 10000)};
+    }
+
     componentDidMount() {
         var themeJSON = require('../resources/echartsThemes/'+ this.props.theme + '.json');
 
         echarts.registerTheme('theme', themeJSON)
 
-        var chart = echarts.init(document.getElementById('chartContainer'), 'theme');
+        var chart = echarts.init(document.getElementById("chartContainer" + this.state.chartId), 'theme');
 
         var title = "";
         var gridPaddingTop = "2%";
@@ -20,6 +25,7 @@ export default class BarChart extends React.Component {
         var data = this.props.data;
 
         var xAxisNames = this.props.xAxisNames;
+        var type = this.props.type;
 
         chart.setOption({
             title: {
@@ -32,7 +38,7 @@ export default class BarChart extends React.Component {
             yAxis: {},
             series: [{
                 name: '销量',
-                type: 'bar',
+                type: type,
                 data: data
             }],
             grid: {
@@ -46,9 +52,10 @@ export default class BarChart extends React.Component {
     }
 
     render() {
+        var chartId = "chartContainer" + this.state.chartId;
         return (
-            <div>
-                <div id="chartContainer" style={{ width:26 + 'rem', height: 16 + 'rem' }}></div>
+            <div style={this.props.style} className={this.props.className}>
+                <div id={chartId} style={{ width:'100%', height: '100%' }}></div>
             </div>
         )
     }
